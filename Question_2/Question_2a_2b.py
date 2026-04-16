@@ -82,3 +82,47 @@ print("\nMIT ")
 print("Global Clustering: ", global_cc_mit)
 print("Mean Local Clustering:", mean_local_cc_mit)
 print("Density:", density_mit)
+
+# question 3: For each network, also draw a scatter plot of the degree versus local clustering coefficient.
+
+#Caltech 
+# getting a dictionary of local clustering coefficients for all the nodes
+cc_dict_caltech = nx.clustering(caltech) 
+# here I'm extracting the lists in the exact same order of the nodes
+deg_caltech = [caltech.degree(n) for n in caltech.nodes()]
+local_cc_caltech = [cc_dict_caltech[n] for n in caltech.nodes()]
+
+plt.figure()
+plt.scatter(deg_caltech, local_cc_caltech, alpha=0.5, color='blue', edgecolors='none')
+plt.title("Degree vs Local Clustering -- Caltech")
+plt.xlabel("Degree")
+plt.ylabel("Local Clustering Coefficient")
+plt.show()
+
+#MIT
+cc_dict_mit = nx.clustering(mit)
+
+deg_mit = [mit.degree(n) for n in mit.nodes()]
+local_cc_mit = [cc_dict_mit[n] for n in mit.nodes()]
+
+plt.figure()
+plt.scatter(deg_mit, local_cc_mit, alpha=0.3, color='red', edgecolors='none')
+plt.title("Degree vs Local Clustering -- MIT")
+plt.xlabel("Degree")
+plt.ylabel("Local Clustering Coefficient")
+plt.show()
+
+# Johns Hopkins
+cc_dict_hopkins = nx.clustering(hopkins)
+
+deg_hopkins = [hopkins.degree(n) for n in hopkins.nodes()]
+local_cc_hopkins = [cc_dict_hopkins[n] for n in hopkins.nodes()]
+
+plt.figure()
+plt.scatter(deg_hopkins, local_cc_hopkins, alpha=0.3, color='green', edgecolors='none')
+plt.title("Degree vs Local Clustering -- Johns Hopkins")
+plt.xlabel("Degree")
+plt.ylabel("Local Clustering Coefficient")
+plt.show()
+
+
