@@ -18,3 +18,33 @@ print("Nodes LCC Caltech:", caltech.number_of_nodes())
 print("Nodes LCC MIT:", mit.number_of_nodes())
 print("Nodes LCC Hopkins:", hopkins.number_of_nodes())
 
+# question 1: For these three networks plot the degree distribution for each of the three networks that you downloaded.
+degrees_caltech = [d for n, d in caltech.degree()]
+degrees_mit = [d for n, d in mit.degree()]
+degrees_hopkins = [d for n, d in hopkins.degree()]
+
+# Plots
+
+# Caltech
+plt.figure() 
+plt.hist(degrees_caltech, bins=30, color='blue', edgecolor='black')
+plt.title("Degree Distribution - Caltech")
+plt.xlabel("Degree (Number of friends)")
+plt.ylabel("Frequency")
+plt.show() 
+
+# MIT
+plt.figure()
+plt.hist(degrees_mit, bins=50, color='red', edgecolor='black')
+plt.title("Degree Distribution - MIT")
+plt.xlabel("Degree (Number of friends)")
+plt.ylabel("Frequency")
+plt.show()
+
+# Johns Hopkins
+plt.figure()
+plt.hist(degrees_hopkins, bins=50, color='green', edgecolor='black')
+plt.title("Degree Distribution - Johns Hopkins")
+plt.xlabel("Degree (Number of friends)")
+plt.ylabel("Frequency")
+plt.show()
