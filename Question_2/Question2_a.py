@@ -2,6 +2,7 @@ NOM = "MENDES GOUVEIA DA SILVA"
 PRENOM = "Ana Julia"
 
 import networkx as nx
+import matplotlib.pyplot as plt
 
 def get_lcc(filepath):
     G = nx.read_gml(filepath)
@@ -50,27 +51,34 @@ plt.ylabel("Frequency")
 plt.show()
 
 # question 2: Compute the global clustering coefficient and mean local clustering coefficient for each of the 3 networks.
+# In addition, compute the edge density of each network.
 
 # Caltech 
 global_cc_caltech = nx.transitivity(caltech)
 mean_local_cc_caltech = nx.average_clustering(caltech)
+density_caltech = nx.density(caltech) # edge density
 
 print("\n\nCaltech ")
 print("Global Clustering: ", global_cc_caltech)
 print("Mean Local Clustering: ", mean_local_cc_caltech)
+print("Density:", density_caltech)
 
 # Johns Hopkins 
 global_cc_hopkins = nx.transitivity(hopkins)
 mean_local_cc_hopkins = nx.average_clustering(hopkins)
+density_hopkins = nx.density(hopkins) # edge density
 
 print("\nJohns Hopkins ")
 print("Global Clustering: ", global_cc_hopkins)
 print("Mean Local Clustering: ", mean_local_cc_hopkins)
+print("Density:", density_hopkins)
 
 #  MIT 
 global_cc_mit = nx.transitivity(mit)
 mean_local_cc_mit = nx.average_clustering(mit)
+density_mit = nx.density(mit) # edge density
 
 print("\nMIT ")
 print("Global Clustering: ", global_cc_mit)
 print("Mean Local Clustering:", mean_local_cc_mit)
+print("Density:", density_mit)
