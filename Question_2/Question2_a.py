@@ -48,3 +48,29 @@ plt.title("Degree Distribution - Johns Hopkins")
 plt.xlabel("Degree (Number of friends)")
 plt.ylabel("Frequency")
 plt.show()
+
+# question 2: Compute the global clustering coefficient and mean local clustering coefficient for each of the 3 networks.
+
+# Caltech 
+global_cc_caltech = nx.transitivity(caltech)
+mean_local_cc_caltech = nx.average_clustering(caltech)
+
+print("\n\nCaltech ")
+print("Global Clustering: ", global_cc_caltech)
+print("Mean Local Clustering: ", mean_local_cc_caltech)
+
+# Johns Hopkins 
+global_cc_hopkins = nx.transitivity(hopkins)
+mean_local_cc_hopkins = nx.average_clustering(hopkins)
+
+print("\nJohns Hopkins ")
+print("Global Clustering: ", global_cc_hopkins)
+print("Mean Local Clustering: ", mean_local_cc_hopkins)
+
+#  MIT 
+global_cc_mit = nx.transitivity(mit)
+mean_local_cc_mit = nx.average_clustering(mit)
+
+print("\nMIT ")
+print("Global Clustering: ", global_cc_mit)
+print("Mean Local Clustering:", mean_local_cc_mit)
