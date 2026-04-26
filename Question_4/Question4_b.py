@@ -6,6 +6,7 @@ import math
 # import networkx as nx
 # import numpy as np
 
+# Question 4 (b) implement the following link prediction metrics: common neighbors, jaccard, Adamic/Adar. 
 class LinkPrediction(ABC):
     def __init__(self, graph):
         self.graph = graph
@@ -19,7 +20,7 @@ class LinkPrediction(ABC):
     def fit(self):
         raise NotImplementedError("Fit must be implemented")
 
-
+# Common Neighbors
 class CommonNeighbors(LinkPrediction):
     def __init__(self, graph):
         super().__init__(graph)
@@ -36,6 +37,7 @@ class CommonNeighbors(LinkPrediction):
             
         return scores
 
+# Jaccard
 class Jaccard(LinkPrediction):
     def __init__(self, graph):
         super().__init__(graph)
@@ -60,6 +62,7 @@ class Jaccard(LinkPrediction):
             
         return scores
 
+#Adamic/Adar
 class AdamicAdar(LinkPrediction):
     def __init__(self, graph):
         super().__init__(graph)
@@ -81,4 +84,3 @@ class AdamicAdar(LinkPrediction):
             scores.append(((u, v), score))
             
         return scores
-
